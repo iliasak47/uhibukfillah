@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Especial para Asala</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7eaf3;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #f3a0c0;
+            color: white;
+        }
+        button:hover {
+            background-color: #e07aa8;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>¿Quién es la mujer más hermosa y más buenorra de todas?</h2>
+
+    <button onclick="respuesta('mala')">Asala El Harcha</button>
+    <button onclick="respuesta('mala')">Asala El Espaguetti</button>
+    <button onclick="respuesta('buena')">Asala El Abboubi</button>
+    <button onclick="respuesta('mala')">Asala La menor</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+    function respuesta(tipo) {
+        const resultado = document.getElementById('resultado');
+        if (tipo === 'buena') {
+            resultado.innerHTML = "🎉 Felicitaciones mi culona, sabes que me perteneces ❤️";
+        } else {
+            resultado.innerHTML = "😔 ¡Qué pena! Esa no es la buena respuesta, mi colobonda.";
+        }
+    }
+</script>
+
+</body>
+</html>
