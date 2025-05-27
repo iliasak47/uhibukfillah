@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test del UNO - Ilias & Asala</title>
+    <style>
+        body {
+            background-color: #ffeef2;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #ff9eb8;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #ff7da0;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #contador {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>¿Quién es el que le folla siempre el ojete al otro en el UNO?</h2>
+        <button onclick="respuesta('ilias')">Ilias el papichulo</button>
+        <button onclick="respuesta('asala')">Asala la perdedora</button>
+
+        <div id="mensaje"></div>
+        <div id="contador"></div>
+    </div>
+
+    <script>
+        function respuesta(opcion) {
+            const mensaje = document.getElementById('mensaje');
+            if (opcion === 'ilias') {
+                mensaje.innerHTML = "<p>Felicidades, sabes quién es tu papi (en la cama, en el UNO y en todo) ❤️</p><p>Ya no queda nada babyyy...</p>";
+                iniciarContador();
+            } else {
+                mensaje.innerHTML = "<p>Lo siento, tu respuesta es muy incorrecta. Dale a la otra opción, no te mientas a ti misma... 😂❤️</p>";
+                document.getElementById('contador').innerHTML = "";
+            }
+        }
+
+        function iniciarContador() {
+            const fechaObjetivo = new Date("May 31, 2025 11:30:00").getTime();
+            const contadorElemento = document.getElementById("contador");
+
+            const intervalo = setInterval(function() {
+                const ahora = new Date().getTime();
+                const distancia = fechaObjetivo - ahora;
+
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                contadorElemento.innerHTML = dias + " días " + horas + " horas " + minutos + " minutos " + segundos + " segundos ";
+
+                if (distancia < 0) {
+                    clearInterval(intervalo);
+                    contadorElemento.innerHTML = "¡Ya estamos juntos! 💕";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
